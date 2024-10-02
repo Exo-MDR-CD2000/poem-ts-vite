@@ -4,10 +4,275 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>JAG | PoetryGrab</title>
   </head>
   <body>
-    <div id="app"></div>
+    
+    <header>
+      <!-- navbar is responsive and changes based on screen size -->
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+          <!-- 
+  navbar: Bootstrap class for styling navigation bars.
+  navbar-expand-md: The navbar will be horizontal on medium (md) devices and larger, and collapsible on smaller screens.
+  navbar-dark: Indicates dark-colored text for the navigation bar links.
+  bg-dark: Sets the background color of the navbar to dark.
+  -->
+          <div class="container-fluid">
+              <!-- container-fluid: Makes the container width span the entire viewport width. -->
+              <a class="navbar-brand" href="#">Poem Grabber</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <!-- 
+          navbar-toggler: Styles the button that toggles the navbar on small screens.
+          data-bs-toggle="collapse": Bootstrap data attribute for collapsing and expanding content.
+          data-bs-target="#navbarNav": Targets the element with id="navbarNav" for the toggle action.
+          -->
+                  <span class="navbar-toggler-icon"></span>
+                  <!-- navbar-toggler-icon: Adds an icon for the toggle button. -->
+              </button>
+              <!-- Navbar links -->
+              <div class="collapse navbar-collapse" id="navbarNav">
+                  <!-- collapse: Hides the content on small screens and shows it when toggled or on larger screens.
+          navbar-collapse: Styles the collapsible part of the navbar. -->
+                  <ul class="navbar-nav ms-auto">
+                      <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="https://www.linkedin.com/in/jag1997/" target="_blank">
+                              <i class="fab fa-linkedin"></i>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="https://github.com/Exo-MDR-CD2000" target="_blank">
+                              <i class="fab fa-github"></i>
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+  </header>
+
+  <section>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="row">
+            <div class="col text-center mt-5">
+                <h1 class="display-4">Poem Grabber</h1>
+                <p class="lead">Access the PoetryDB collection</p>
+                <p class="lead">Search for poems, add new poems, and
+                    save your favorites</p>
+            </div>
+        </div>
+
+        <!-- Random Poem Button Section -->
+        <div class="row mt-5">
+            <div class="col text-center">
+                <button class="btn btn-primary mb-4" id="get-random-poem">Get Random Poem</button>
+            </div>
+        </div>
+
+        <!-- Random Poem Results Section -->
+        <div id="random-poem-results"></div>
+
+        <!-- Example random poem below: -->
+        <!-- <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <div class="card-body p-2">
+                        <h5 class="card-title">The River of Leith</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">William Topaz McGonagall</h6>
+                        <p class="card-text">Line Count: 52</p>
+                        <p class="card-text">
+                            As I stood upon the Dean Bridge and viewed the beautiful scenery,<br>
+                            I felt fascinated and my heart was full of glee,<br>
+                            And I exclaimed in an ecstasy of delight,<br>
+                            In all my travels I never saw such a sight.<br>
+                            <br>
+                            The scenery is so enchanting to look upon<br>
+                            That all tourists will say, "Dull care, be gone."<br>
+                            'Tis certainly a most lovely spot,<br>
+                            And once seen it can never be forgot.<br>
+                            <br>
+                            Then away! away! to the River of Leith,<br>
+                            That springs from the land of heather and heath,<br>
+                            And view the gorgeous scenery on a fine summer day.<br>
+                            I'm sure it will drive dull care away.<br>
+                            <br>
+                            The water-fall near the Bridge is most beautiful to be seen,<br>
+                            As it falls and shines like crystal in the sunsheen;<br>
+                            And the sound can be heard all day long,<br>
+                            While the innocent trouts sing an aquatic song.<br>
+                            <br>
+                            The glen is a cool spot in the summer time.<br>
+                            There the people can be shaded from the sunshine<br>
+                            Under the spreading branches of the big trees,<br>
+                            And there's seats there to rest on if they please.<br>
+                            <br>
+                            Then near St. Bernard's Well there's a shady bower,<br>
+                            Where the lovers, if they like, can spend an hour;<br>
+                            And while they rest there at their ease<br>
+                            They can make love to each other if they please.<br>
+                            <br>
+                            The water of St. Bernard's Well is very nice,<br>
+                            But to get a drink of it one penny is the price.<br>
+                            I think in justice the price is rather high,<br>
+                            To give a penny for a drink when one feels dry.<br>
+                            <br>
+                            The braes of the River Leith is most charming to be seen,<br>
+                            With its beautiful trees and shrubberies green,<br>
+                            And as the tourist gazes on the river in the valley below,<br>
+                            His heart with joy feels all aglow.<br>
+                            <br>
+                            There the little trouts do sport and play<br>
+                            During the live-long summer day,<br>
+                            While the bee and butterfly is on the wing,<br>
+                            And with the singing of birds the glen doth ring.<br>
+                            <br>
+                            The walk underneath the Dean Bridge is lovely to see.<br>
+                            And as ye view the scenery it will fill your heart with glee.<br>
+                            It is good for the people's health to be walking there<br>
+                            As they gaze on the beauties of Nature and inhale pure air.<br>
+                            <br>
+                            The Dean Bridge is a very magnificent sight,<br>
+                            Because from the basement it is a great height.<br>
+                            And it seems most attractive to the eye,<br>
+                            And arrests the attention of strangers as they pass by.<br>
+                            <br>
+                            The braes of Belgrave Crescent is lovely to see,<br>
+                            With its beautiful walks and green shrubbery.<br>
+                            'Tis health for the people that lives near by there<br>
+                            To walk along the bonny walks and breathe the sweet air.<br>
+                            <br>
+                            Therefore all lovers of the picturesque, bo advised by me<br>
+                            And the beautiful scenery of the River Leith go and see,<br>
+                            And I am sure you will get a very great treat,<br>
+                            Because the River of Leith scenery cannot be beat.
+                        </p>
+                        <button class="btn btn-danger btn-sm position-absolute top-0 end-0 m-2 delete-poem">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- Random Poem Display Section -->
+        <div class="row mt-5">
+            <div class="col text-center">
+                <!-- bottom div is where to target poems in js -->
+                <div id="poem" class="fs-5"></div>
+            </div>
+        </div>
+
+        <hr class="my-4">
+
+        <!-- Search Form Section -->
+        <form id="poemSearchForm">
+            <h2 class="mb-4">Search By Poem Or Poet</h2>
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label for="title" class="form-label">Poem Title</label>
+                    <select class="form-select" id="title">
+                        <option value="">Select a poem title</option>
+                        <!-- Options will be populated by JavaScript -->
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="author" class="form-label">Author</label>
+                    <select class="form-select" id="author">
+                        <option value="">Select an author</option>
+                        <!-- Options will be populated by JavaScript -->
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Search Poem</button>
+            <button type="button" class="btn btn-secondary" id="clearResults">Clear Results</button>
+        </form>
+
+        <!-- Results Section -->
+        <div id="results" class="mt-5"></div>
+
+        <hr class="my-4">
+
+        <!-- Add Poem Form Section -->
+        <form id="addPoemForm">
+            <h2 class="mb-4">Add New Poem</h2>
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label for="newTitle" class="form-label">Poem
+                        Title</label>
+                    <input type="text" class="form-control" id="newTitle" placeholder="Enter poem title">
+                </div>
+                <div class="col-md-4">
+                    <label for="newAuthor" class="form-label">Author</label>
+                    <input type="text" class="form-control" id="newAuthor" placeholder="Enter author name">
+                </div>
+                <div class="col-md-4">
+                    <label for="newLines" class="form-label">Poem
+                        Lines</label>
+                    <textarea class="form-control" id="newLines" rows="3"
+                        placeholder="Enter poem lines, separated by new lines"></textarea>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success" id="add-poem-btn">Add Poem</button>
+        </form>
+
+        <hr class="my-4">
+
+        <!-- Saved Poems Section -->
+        <!-- Poem cards displayed on screens < md -->
+        <div id="poemCardSectionSmall" class="mt-5 d-block d-md-none">
+            <h2 class="mb-4">Saved Poems</h2>
+            <div class="row saved-poems" id="poemCardsContainer">
+            </div>
+        </div>
+
+        <!-- Saved Poems Section for Medium and Larger Screens -->
+        <div id="poemCardSectionLarge" class="mt-5 d-none d-md-block">
+            <h2 class="mb-4 text-center">Saved Poems</h2>
+            <div class="row justify-content-center saved-poems" id="poemCardsContainerLarge">
+            </div>
+        </div>
+
+        <hr class="my-4">
+
+        <!-- How Does it Work Section -->
+        <div class="row mt-5 mb-5">
+            <div class="col text-center">
+                <h2 class="site-explained">How Does it Work?</h2>
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item lead">This site uses
+                            the PoetryDB API to fetch random poems,
+                            search for poems, and add new poems to the
+                            database.</li>
+                        <li class="list-group-item lead">Poems are
+                            stored locally within the project repository
+                            in a JSON database.</li>
+                        <li class="list-group-item lead">JSON-server is
+                            used to handle the backend
+                            functionality.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer mt-auto py-3 bg-dark-subtle text-center">
+  <div class="container">
+      <div class="row">
+          <div class="col text-center">
+              <span class="text-muted fst-italic">&copy; <span id="current-year"></span> J.A.G</span>
+          </div>
+      </div>
+  </div>
+</footer>
+
+
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
