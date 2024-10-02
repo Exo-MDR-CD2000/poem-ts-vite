@@ -4,7 +4,7 @@ import 'bootstrap';
 
 // Imports for fontawesome and bootstrap-icons
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
+import 'bootstrap-icons/font/bootstrap-icons.min.css';
 
 // Custom CSS
 import '../css/style.min.css';
