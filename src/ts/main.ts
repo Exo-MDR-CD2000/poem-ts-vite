@@ -1,6 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 import '../css/style.min.css';
+
+// Bootstrap breakpoint css
+import '../css/bootstrap-breakpoint.css';
+
+// copright-update import should be last
 import { updateCopyrightYear } from './copyright-update';
 
 
