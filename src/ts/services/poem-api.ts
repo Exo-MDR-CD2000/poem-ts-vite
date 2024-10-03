@@ -58,3 +58,9 @@ export const fetchAllPoemsByTitle = async (title: string): Promise<Poem[]> => {
         throw error;
     }
 };
+
+// use this api url for all titles with their author, lines, and linecount
+// https://poetrydb.org/title/lines
+
+// https://poetrydb.org/author/Andrew%20Marvell
+// https://poetrydb.org/title/%22Faith%22%20is%20a%20fine%20invention
