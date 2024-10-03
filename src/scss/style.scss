@@ -16,3 +16,22 @@
         white-space: nowrap;
     }
 }
+
+
+// below code should fix poem title overlapping with delete button
+
+.card-body {
+    position: relative;
+}
+
+.card-title {
+    white-space: normal; // Allow the title to wrap
+    word-wrap: break-word; // Break long words if necessary
+    margin-right: 2.5rem; // Add some margin to avoid overlap with the delete button
+}
+
+.delete-poem {
+    position: absolute;
+    top: 0;
+    right: 0;
+}

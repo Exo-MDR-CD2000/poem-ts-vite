@@ -11,4 +11,19 @@
     overflow-y: auto;
     white-space: nowrap;
   }
+}
+.card-body {
+  position: relative;
+}
+
+.card-title {
+  white-space: normal;
+  word-wrap: break-word;
+  margin-right: 2.5rem;
+}
+
+.delete-poem {
+  position: absolute;
+  top: 0;
+  right: 0;
 }/*# sourceMappingURL=style.css.map */
