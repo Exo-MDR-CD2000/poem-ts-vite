@@ -19,6 +19,7 @@ import { updateCopyrightYear } from './utils/copyright-update';
 import { fetchRandomPoem, fetchAllPoemsByAuthor, fetchAllPoemsByTitle, } from '../ts/services/poem-api';
 import { initializeRandomPoemGenerator } from './ui/randomPoemRenderer';
 
+
 // Function to test fetching one random poem
 const testFetchRandomPoem = async (): Promise<void> => {
     try {
@@ -61,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Initialize the random poem generator
 initializeRandomPoemGenerator();
+
 
 
 
