@@ -16,8 +16,10 @@ import '../css/bootstrap-breakpoint.css';
 import { updateCopyrightYear } from './utils/copyright-update';
 
 
-import { fetchRandomPoem, fetchAllPoemsByAuthor, fetchAllPoemsByTitle, } from '../ts/services/poem-api';
+import { fetchRandomPoem, fetchAllAuthors, fetchAllTitles } from '../ts/services/poem-api';
 import { initializeRandomPoemGenerator } from './ui/randomPoemRenderer';
+
+import { setupDropdowns } from './utils/dropdownClear';
 
 
 // Function to test fetching one random poem
@@ -30,33 +32,32 @@ const testFetchRandomPoem = async (): Promise<void> => {
     }
 };
 
-// Function to test fetching all poems by author
-const testFetchAllPoemsByAuthor = async (author: string): Promise<void> => {
+
+//Function to load titles and log them to the console
+const loadTitles = async () => {
     try {
-        const poems = await fetchAllPoemsByAuthor(author);
-        console.log(`Poems by ${author}:`, poems);
+        const titles = await fetchAllTitles(); // Await the titles array
+        console.log('Titles fetched in main.ts:', titles); // Log the titles array
     } catch (error) {
-        console.error(`Error fetching poems by author ${author}:`, error);
+        console.error('Error in main.ts:', error); // Handle any errors
     }
 };
 
-// Function to test fetching all poems by title
-const testFetchAllPoemsByTitle = async (title: string): Promise<void> => {
+// Function to load authors and log them to the console
+const loadAuthors = async () => {
     try {
-        const poems = await fetchAllPoemsByTitle(title);
-        console.log(`Poems with title ${title}:`, poems);
+        const authors = await fetchAllAuthors(); // Await the authors array
+        console.log('Authors fetched in main.ts:', authors); // Log the authors array
     } catch (error) {
-        console.error(`Error fetching poems with title ${title}:`, error);
+        console.error('Error in main.ts:', error); // Handle any errors
     }
 };
 
-
-
-// Call the test functions
+// Ensure the function is called after the DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     testFetchRandomPoem();
-    testFetchAllPoemsByAuthor('Emily Dickinson');
-    testFetchAllPoemsByTitle('The Raven');
+    loadAuthors(); // Call the loadAuthors function
+    loadTitles(); // Call the loadTitles function
 });
 
 
@@ -65,8 +66,9 @@ initializeRandomPoemGenerator();
 
 
 
-
-
+document.addEventListener('DOMContentLoaded', () => {
+    setupDropdowns();  // Initialize the dropdown logic
+});
 
 
 

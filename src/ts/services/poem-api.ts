@@ -23,44 +23,129 @@ export const fetchRandomPoem = async (): Promise<Poem> => {
     }
 };
 
-// Fetch all poems by author
-export const fetchAllPoemsByAuthor = async (author: string): Promise<Poem[]> => {
-    try {
-        const response = await fetch(`${ALL_POEMS_BY_AUTHOR_API_URL}/${encodeURIComponent(author)}`);
+// // Fetch all poems by title but you must pass the title name
+// export const fetchAllPoemsByTitle = async (title: string): Promise<Poem[]> => {
+//     try {
+//         const response = await fetch(`${ALL_POEMS_BY_TITLE_API_URL}/${encodeURIComponent(title)}`);
 
+//         if (!response.ok) {
+//             throw new Error(`Failed to fetch poems by title: ${title}`);
+//         }
+
+//         const data: Poem[] = await response.json();
+//         return data;
+
+//     } catch (error) {
+//         console.error(`Error fetching poems by title: ${title}`, error);
+//         throw error;
+//     }
+// };
+
+// Fetch all titles
+export const fetchAllTitles = async (): Promise<string[]> => {
+    try {
+        const response = await fetch(ALL_POEMS_BY_TITLE_API_URL);
+        
         if (!response.ok) {
-            throw new Error(`Failed to fetch poems by author: ${author}`);
+            throw new Error('Failed to fetch titles');
         }
 
-        const data: Poem[] = await response.json();
-        return data;
+        // Parse the response JSON
+        const data = await response.json();
+        // console.log(data); // Log the entire data for debugging
+
+        // Ensure you are accessing the 'titles' array within the response
+        if (!data.titles) {
+            throw new Error('Invalid response structure: no titles array');
+        }
+
+        // console.log(data.titles); // Log the titles array for debugging
+        return data.titles; // Return the titles array
 
     } catch (error) {
-        console.error(`Error fetching poems by author: ${author}`, error);
+        console.error('Error fetching titles:', error);
         throw error;
     }
 };
 
-// Fetch all poems by title
-export const fetchAllPoemsByTitle = async (title: string): Promise<Poem[]> => {
-    try {
-        const response = await fetch(`${ALL_POEMS_BY_TITLE_API_URL}/${encodeURIComponent(title)}`);
 
+// Fetch all authors
+export const fetchAllAuthors = async (): Promise<string[]> => {
+    try {
+        const response = await fetch(ALL_POEMS_BY_AUTHOR_API_URL);
+        
         if (!response.ok) {
-            throw new Error(`Failed to fetch poems by title: ${title}`);
+            throw new Error('Failed to fetch authors');
         }
 
-        const data: Poem[] = await response.json();
-        return data;
+        // Parse the response JSON
+        const data = await response.json();
+        // console.log(data);
+
+        // Ensure you are accessing the 'authors' array within the response
+        if (!data.authors) {
+            throw new Error('Invalid response structure: no authors array');
+        }
+
+        // console.log(data.authors);
+        return data.authors; // Return the authors array
 
     } catch (error) {
-        console.error(`Error fetching poems by title: ${title}`, error);
+        console.error('Error fetching authors:', error);
         throw error;
     }
 };
+
+
+
 
 // use this api url for all titles with their author, lines, and linecount
 // https://poetrydb.org/title/lines
 
 // https://poetrydb.org/author/Andrew%20Marvell
 // https://poetrydb.org/title/%22Faith%22%20is%20a%20fine%20invention
+
+
+
+
+
+
+
+// -----------------------------------------UNUSED CODE-----------------------------------------
+
+
+// // Fetch all poems by author but you must pass the author name
+// export const fetchAllPoemsByAuthor = async (author: string): Promise<Poem[]> => {
+//     try {
+//         const response = await fetch(`${ALL_POEMS_BY_AUTHOR_API_URL}/${encodeURIComponent(author)}`);
+
+//         if (!response.ok) {
+//             throw new Error(`Failed to fetch poems by author: ${author}`);
+//         }
+
+//         const data: Poem[] = await response.json();
+//         return data;
+
+//     } catch (error) {
+//         console.error(`Error fetching poems by author: ${author}`, error);
+//         throw error;
+//     }
+// };
+
+// // Fetch all poem titles
+// export const fetchAllPoemTitles = async (): Promise<string[]> => {
+//     try {
+//         const response = await fetch(ALL_POEMS_BY_TITLE_API_URL);
+
+//         if (!response.ok) {
+//             throw new Error('Failed to fetch poem titles');
+//         }
+
+//         const data = await response.json();
+//         return data.map((poem: Poem) => poem.title);
+
+//     } catch (error) {
+//         console.error('Error fetching poem titles:', error);
+//         throw error;
+//     }
+// };
