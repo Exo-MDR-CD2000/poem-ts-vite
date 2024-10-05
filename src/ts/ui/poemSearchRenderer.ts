@@ -88,11 +88,15 @@ export const setupPoemsApp = async () => {
             handleSearchButtonClick(); // Call the search function
         });
 
-        // Clear search results
+                // Clear search results
         const clearSearchResults = () => {
             const tbody = document.querySelector('.table tbody') as HTMLTableSectionElement;
             if (tbody) {
-                tbody.innerHTML = ''; // Clear existing rows
+                // Use a while loop to remove each child node individually
+                // hopefully prevents memory leaks
+                while (tbody.firstChild) {
+                    tbody.removeChild(tbody.firstChild);
+                }
             }
             authorSelect.value = '';
             titleSelect.value = '';
