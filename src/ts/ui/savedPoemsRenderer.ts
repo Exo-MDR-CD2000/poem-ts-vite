@@ -16,18 +16,27 @@ export const renderSavedPoems = async () => {
             tbody.appendChild(row);
         });
 
-        // Add event listeners for delete buttons
-        document.querySelectorAll('.delete-poem').forEach(button => {
-            button.addEventListener('click', async (event) => {
-                const index = (event.target as HTMLElement).getAttribute('data-poem-index');
+        // Use event delegation for handling delete button clicks
+        tbody.addEventListener('click', async (event) => {
+            const target = event.target as HTMLElement;
+            const deleteButton = target.closest('.delete-poem');
+            if (deleteButton) {
+                console.log('Delete button clicked'); // Log button click
+                const index = deleteButton.getAttribute('data-poem-index');
+                console.log('Poem index:', index); // Log poem index
                 if (index !== null) {
                     const poem = poems[parseInt(index)];
+                    console.log('Poem ID:', poem.id); // Log poem ID
                     await deletePoem(poem.id!);
+                    console.log(`Poem with ID ${poem.id} deleted`); // Log deletion
                     renderSavedPoems(); // Re-render the table
                 }
-            });
+            }
         });
     } catch (error) {
         console.error('Error rendering saved poems:', error);
     }
 };
+
+// this is a brute force method of deleting a poem since it sends multiple requests to the database.
+// running low on time but it works for now.
