@@ -19,7 +19,11 @@ import { updateCopyrightYear } from './utils/copyright-update';
 import { fetchRandomPoem, fetchAllAuthors, fetchAllTitles } from '../ts/services/poem-api';
 import { initializeRandomPoemGenerator } from './ui/randomPoemRenderer';
 
-import { setupDropdowns } from './utils/dropdownClear';
+// import { setupDropdowns } from './utils/dropdownClear';
+
+// import { loadAuthorsAndTitles } from './utils/dropdown-test';
+
+import { setupPoemsApp } from './ui/poemSearchRenderer';
 
 
 // Function to test fetching one random poem
@@ -66,12 +70,15 @@ initializeRandomPoemGenerator();
 
 
 
+// document.addEventListener('DOMContentLoaded', () => {
+//     setupDropdowns();  // Initialize the dropdown logic
+// });
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
-    setupDropdowns();  // Initialize the dropdown logic
+    setupPoemsApp(); // Set up the dropdowns and event listeners
 });
-
-
-
 
 
 
