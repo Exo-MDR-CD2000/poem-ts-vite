@@ -35,6 +35,8 @@ export const setupPoemsApp = async () => {
             const selectedTitle = titleSelect.value;
             const searchAlert = document.getElementById('no-search-alert') as HTMLDivElement;
 
+            // Log the user's search criteria
+            console.log(`User selected - ${selectedAuthor ? `Author: ${selectedAuthor}` : ''}${selectedAuthor && selectedTitle ? ', ' : ''}${selectedTitle ? `Title: ${selectedTitle}` : ''}`);
             if (!selectedAuthor && !selectedTitle) {
                 searchAlert.classList.remove('d-none'); // Show the alert
                 return;
@@ -44,6 +46,10 @@ export const setupPoemsApp = async () => {
 
             try {
                 const poems: Poem[] = await fetchPoems(selectedAuthor, selectedTitle);
+                
+                // Log the search results
+                console.log(`Search results based on ${selectedAuthor ? `Author Choice = ${selectedAuthor}` : `Title Choice = ${selectedTitle}`}:`, poems);
+        
                 renderPoemsInTable(poems);
             } catch (error) {
                 console.error('Error during search:', error);
@@ -52,7 +58,7 @@ export const setupPoemsApp = async () => {
         
         // Render poems in the table
         const renderPoemsInTable = (poems: Poem[]) => {
-            const tbody = document.querySelector('.table tbody') as HTMLTableSectionElement;
+            const tbody = document.getElementById('searchResults') as HTMLTableSectionElement;
             // Clear existing rows using a while loop to prevent memory leaks
             while (tbody.firstChild) {
                 tbody.removeChild(tbody.firstChild);
@@ -74,7 +80,7 @@ export const setupPoemsApp = async () => {
 
                 // Clear search results
         const clearSearchResults = () => {
-            const tbody = document.querySelector('.table tbody') as HTMLTableSectionElement;
+            const tbody = document.getElementById('searchResults') as HTMLTableSectionElement;
             if (tbody) {
                 // Use a while loop to remove each child node individually
                 // hopefully prevents memory leaks
@@ -85,12 +91,6 @@ export const setupPoemsApp = async () => {
             authorSelect.value = '';
             titleSelect.value = '';
         };
-
-        // Add event listener for the search button
-        document.getElementById('poemSearchForm')?.addEventListener('submit', (event) => {
-            event.preventDefault(); // Prevent the default form submission
-            handleSearchButtonClick(); // Call the search function
-        });
 
         // Add event listener for the clear results button
         document.getElementById('clearResults')?.addEventListener('click', () => {
