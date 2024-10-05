@@ -36,7 +36,7 @@ export const initializeRandomPoemGenerator = (): void => {
         poemContainerLarge.appendChild(largePoemCard);
 
         // Add event listeners to the delete buttons
-        const deleteButtons = document.querySelectorAll('.delete-poem');
+        const deleteButtons = document.querySelectorAll('.delete-poem-random');
         deleteButtons.forEach(button => {
             button.addEventListener('click', () => {
                 while (poemContainerSmall.firstChild) {
