@@ -47,3 +47,5 @@ export const renderSavedPoems = async () => {
 // the function is being called in the poemSearchRenderer but only when saving a poem from the search results. Can't be the issue there.
 // I could alter the table card utility but i might get the same issue.
 // Issue as to be here in the savedPoemsRenderer.
+
+// Also, see if it is possible to separate the use of renderSavedPoems away from poemSearchRenderer. That could cause issues as well.
