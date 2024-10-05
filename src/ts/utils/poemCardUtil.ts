@@ -12,7 +12,7 @@ export const createSmallPoemCard = (poem: Poem): HTMLElement => {
                 <h6 class="card-subtitle mb-2 text-muted">${poem.author}</h6>
                 <p class="card-text">Line Count: ${poem.linecount}</p>
                 <p class="card-text">${poem.lines.join('<br>')}</p>
-                <button class="btn btn-danger btn-sm position-absolute top-0 end-0 m-2 delete-poem" data-id="${poem.id}">
+                <button class="btn btn-danger btn-sm position-absolute top-0 end-0 m-2 delete-poem-random" data-id="${poem.id}">
                     <i class="bi bi-trash"></i>
                 </button>
             </div>
@@ -32,7 +32,7 @@ export const createLargePoemCard = (poem: Poem): HTMLElement => {
                 <h6 class="card-subtitle mb-2 text-muted">${poem.author}</h6>
                 <p class="card-text">Line Count: ${poem.linecount}</p>
                 <p class="card-text">${poem.lines.join('<br>')}</p>
-                <button class="btn btn-danger btn-lg-1 position-absolute top-0 end-0 m-2 delete-poem" data-id="${poem.id}">
+                <button class="btn btn-danger btn-lg-1 position-absolute top-0 end-0 m-2 delete-poem-random" data-id="${poem.id}">
                     <i class="bi bi-trash"></i>
                 </button>
             </div>
