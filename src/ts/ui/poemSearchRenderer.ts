@@ -32,11 +32,14 @@ export const setupPoemsApp = async () => {
         const handleSearchButtonClick = async () => {
             const selectedAuthor = authorSelect.value;
             const selectedTitle = titleSelect.value;
+            const searchAlert = document.getElementById('no-search-alert') as HTMLDivElement;
 
             if (!selectedAuthor && !selectedTitle) {
-                alert('Please select an author or title to search.');
+                searchAlert.classList.remove('d-none'); // Show the alert
                 return;
             }
+
+            searchAlert.classList.add('d-none'); // Hide the alert after a search is made
 
             try {
                 const poems: Poem[] = await fetchPoems(selectedAuthor, selectedTitle);
