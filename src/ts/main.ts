@@ -21,8 +21,6 @@ import { initializeRandomPoemGenerator } from './ui/randomPoemRenderer';
 
 // import { setupDropdowns } from './utils/dropdownClear';
 
-// import { loadAuthorsAndTitles } from './utils/dropdown-test';
-
 import { setupPoemsApp } from './ui/poemSearchRenderer';
 
 
@@ -64,20 +62,13 @@ document.addEventListener('DOMContentLoaded', () => {
     loadTitles(); // Call the loadTitles function
 });
 
-
-// Initialize the random poem generator
-initializeRandomPoemGenerator();
-
-
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     setupDropdowns();  // Initialize the dropdown logic
-// });
-
-
-
 document.addEventListener('DOMContentLoaded', () => {
-    setupPoemsApp(); // Set up the dropdowns and event listeners
+
+    // Initialize the random poem generator
+    initializeRandomPoemGenerator();
+
+    // Initialize search render
+    setupPoemsApp(); 
 });
 
 
