@@ -1,21 +1,43 @@
 {
-    "savedPoems": [
-      {
-        "id": 1,
-        "title": "Test Poem",
-        "author": "Test Author",
-        "lines": [
-          "Is the poem fetched or lost in code,",
-          "Did the API yield what it showed?",
-          "In JSON fields, the words await,",
-          "But syntax errors tempt their fate.",
-          "",
-          "With async dreams, we call once more,",
-          "Debugging logs, the endless chore.",
-          "Oh fetch, succeed—let poems flow,",
-          "So all my testing woes can go."
-        ],
-        "linecount": "9"
-      }
-    ]
-  }
+  "savedPoems": [
+    {
+      "id": 1,
+      "title": "Test Poem",
+      "author": "Test Author",
+      "lines": [
+        "Is the poem fetched or lost in code,",
+        "Did the API yield what it showed?",
+        "In JSON fields, the words await,",
+        "But syntax errors tempt their fate.",
+        "",
+        "With async dreams, we call once more,",
+        "Debugging logs, the endless chore.",
+        "Oh fetch, succeed—let poems flow,",
+        "So all my testing woes can go."
+      ],
+      "linecount": "9"
+    },
+    {
+      "id": 2,
+      "title": "Vite and TypeScript Symphony",
+      "author": "Code Poet",
+      "lines": [
+        "In the realm of code, where Vite does shine,",
+        "TypeScript joins, with types divine.",
+        "A build so swift, a dev's delight,",
+        "In every line, the future's bright.",
+        "",
+        "Modules load with blazing speed,",
+        "Type safety, our noble steed.",
+        "In Vite's embrace, we find our way,",
+        "To code with joy, both night and day.",
+        "",
+        "No more waits, for builds so slow,",
+        "With Vite and TypeScript, watch us grow.",
+        "In harmony, they guide our hand,",
+        "To craft the best, in code we stand."
+      ],
+      "linecount": "12"
+    }
+  ]
+}
