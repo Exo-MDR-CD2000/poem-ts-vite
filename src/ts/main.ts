@@ -23,6 +23,7 @@ import { initializeRandomPoemGenerator } from './ui/randomPoemRenderer';
 
 import { setupPoemsApp } from './ui/poemSearchRenderer';
 
+import { handleAddPoemForm } from './ui/makePoemRenderer';
 
 // Function to test fetching one random poem
 const testFetchRandomPoem = async (): Promise<void> => {
@@ -69,6 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize search render
     setupPoemsApp(); 
+
+    handleAddPoemForm();
 });
 
 
