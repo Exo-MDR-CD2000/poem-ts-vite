@@ -10,7 +10,7 @@ import 'bootstrap-icons/font/bootstrap-icons.min.css';
 import '../css/style.min.css';
 
 // Bootstrap breakpoint css
-import '../css/bootstrap-breakpoint.css';
+// import '../css/bootstrap-breakpoint.css';
 
 // copright-update import should be last
 import { updateCopyrightYear } from './utils/copyright-update';
