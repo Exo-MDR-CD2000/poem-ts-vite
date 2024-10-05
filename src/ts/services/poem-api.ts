@@ -30,9 +30,9 @@ export const fetchPoems = async (author?: string, title?: string): Promise<Poem[
         let url = '';
 
         if (author) {
-            url = `https://poetrydb.org/author/${encodeURIComponent(author)}`;
+            url = `${BASE_URL}/author/${encodeURIComponent(author)}`;
         } else if (title) {
-            url = `https://poetrydb.org/title/${encodeURIComponent(title)}`;
+            url = `${BASE_URL}/title/${encodeURIComponent(title)}`;
         } else {
             throw new Error('Either author or title must be provided');
         }
