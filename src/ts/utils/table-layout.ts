@@ -1,6 +1,11 @@
 import { Poem } from "../types/poemTypes";
 
-// Pure function to generate HTML for a table row for search results
+/**
+ * Generates HTML for a table row for search results.
+ * @param {Poem} poem - The poem object.
+ * @param {number} index - The index of the poem in the array.
+ * @returns {string} - The HTML string for the table row.
+ */
 export const generateSearchTableRowHTML = (poem: Poem, index: number): string => {
     return `
         <tr>
@@ -26,14 +31,28 @@ export const generateSearchTableRowHTML = (poem: Poem, index: number): string =>
     `;
 };
 
-// Pure function to generate HTML for a table row Json-server
+/**
+ * Generates HTML for a table row for saved poems.
+ * @param {Poem} poem - The poem object.
+ * @param {number} index - The index of the poem in the array.
+ * @returns {string} - The HTML string for the table row.
+ */
 export const generateSavedTableRowHTML = (poem: Poem, index: number): string => {
     return `
         <tr data-poem-index="${index}">
             <td class="poem-title">${poem.title}</td>
             <td class="poem-author">${poem.author}</td>
             <td class="poem-linecount">${poem.linecount}</td>
-            <td class="poem-lines">${poem.lines.join('<br>')}</td>
+            <td class="poem-column">
+                ${poem.lines.length > 6 ? `
+                    <a class="btn btn-link" data-bs-toggle="collapse" href="#collapseSavedPoem${index}" role="button" aria-expanded="false" aria-controls="collapseSavedPoem${index}">
+                        Show Poem
+                    </a>
+                    <div class="collapse" id="collapseSavedPoem${index}">
+                        ${poem.lines.join('<br>')}
+                    </div>
+                ` : poem.lines.join('<br>')}
+            </td>
             <td>
                 <button class="btn btn-warning edit-poem" data-poem-index="${index}">
                     <i class="bi bi-pencil"></i>
