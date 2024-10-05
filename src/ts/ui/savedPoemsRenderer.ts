@@ -40,3 +40,10 @@ export const renderSavedPoems = async () => {
 
 // this is a brute force method of deleting a poem since it sends multiple requests to the database.
 // running low on time but it works for now.
+
+// perhaps a memory leak or maybe due to manipulating the dom directly?
+// the delete requests stack up after the first delete request is sent.
+
+// the function is being called in the poemSearchRenderer but only when saving a poem from the search results. Can't be the issue there.
+// I could alter the table card utility but i might get the same issue.
+// Issue as to be here in the savedPoemsRenderer.
