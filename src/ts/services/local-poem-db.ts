@@ -2,17 +2,7 @@ import { Poem } from '../types/poemTypes';
 
 const API_URL = 'http://localhost:3000/savedPoems';
 
-/**
- * Fetches all saved poems from the local database.
- * @returns {Promise<Poem[]>} - A promise that resolves to an array of poems.
- */
-export const fetchSavedPoems = async (): Promise<Poem[]> => {
-    const response = await fetch(API_URL);
-    if (!response.ok) {
-        throw new Error(`Failed to fetch saved poems Status code: ${response.status}`);
-    }
-    return response.json();
-};
+// --- CREATE ---
 
 /**
  * Saves a new poem to the local database.
@@ -33,19 +23,21 @@ export const savePoem = async (poem: Poem): Promise<Poem> => {
     return response.json();
 };
 
+// --- READ ---
+
 /**
- * Deletes a poem from the local database.
- * @param {number} id - The ID of the poem to delete.
- * @returns {Promise<void>} - A promise that resolves when the poem is deleted.
+ * Fetches all saved poems from the local database.
+ * @returns {Promise<Poem[]>} - A promise that resolves to an array of poems.
  */
-export const deletePoem = async (id: number): Promise<void> => {
-    const response = await fetch(`${API_URL}/${id}`, {
-        method: 'DELETE'
-    });
+export const fetchSavedPoems = async (): Promise<Poem[]> => {
+    const response = await fetch(API_URL);
     if (!response.ok) {
-        throw new Error(`Failed to delete poem. Status code: ${response.status}`);
+        throw new Error(`Failed to fetch saved poems Status code: ${response.status}`);
     }
+    return response.json();
 };
+
+// --- UPDATE ---
 
 /**
  * Updates an existing poem in the local database.
@@ -65,4 +57,20 @@ export const updatePoem = async (id: number, poem: Poem): Promise<Poem> => {
         throw new Error(`Failed to update poem. Status code: ${response.status}`);
     }
     return response.json();
+};
+
+// --- DELETE ---
+
+/**
+ * Deletes a poem from the local database.
+ * @param {number} id - The ID of the poem to delete.
+ * @returns {Promise<void>} - A promise that resolves when the poem is deleted.
+ */
+export const deletePoem = async (id: number): Promise<void> => {
+    const response = await fetch(`${API_URL}/${id}`, {
+        method: 'DELETE'
+    });
+    if (!response.ok) {
+        throw new Error(`Failed to delete poem. Status code: ${response.status}`);
+    }
 };
