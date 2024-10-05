@@ -9,7 +9,7 @@ const API_URL = 'http://localhost:3000/savedPoems';
 export const fetchSavedPoems = async (): Promise<Poem[]> => {
     const response = await fetch(API_URL);
     if (!response.ok) {
-        throw new Error('Failed to fetch saved poems');
+        throw new Error(`Failed to fetch saved poems Status code: ${response.status}`);
     }
     return response.json();
 };
@@ -28,7 +28,7 @@ export const savePoem = async (poem: Poem): Promise<Poem> => {
         body: JSON.stringify(poem)
     });
     if (!response.ok) {
-        throw new Error('Failed to save poem');
+        throw new Error(`Failed to save poem Status code: ${response.status}`);
     }
     return response.json();
 };
@@ -43,7 +43,7 @@ export const deletePoem = async (id: number): Promise<void> => {
         method: 'DELETE'
     });
     if (!response.ok) {
-        throw new Error('Failed to delete poem');
+        throw new Error(`Failed to delete poem. Status code: ${response.status}`);
     }
 };
 
@@ -62,7 +62,7 @@ export const updatePoem = async (id: number, poem: Poem): Promise<Poem> => {
         body: JSON.stringify(poem)
     });
     if (!response.ok) {
-        throw new Error('Failed to update poem');
+        throw new Error(`Failed to update poem. Status code: ${response.status}`);
     }
     return response.json();
 };
